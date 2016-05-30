@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>mod.js</title>
+    <script type="text/javascript" src="/static/mod.js"></script>
+</head>
+<body>
+    <div id="log"></div>
+    <button id="btn">load async module</button>
+    <script type="text/javascript">
+
+//        var People = require('/modules/People');
+//
+//        var moon = new People('moon');
+//        moon.sayHello('me');
+
+        var Developer = require('/modules/Developer');
+        var moon = new Developer('moon');
+        moon.program();
+        moon.sayHello('hah');
+        console.log(Developer.CAREER);
+
+//    require('/modules/main');
+//
+//    var btn = document.getElementById('btn');
+//    var handler = function() {
+//        require(['./modules/async'], function(init) {
+//            init();
+//        });
+//    };
+//
+//    if (btn.addEventListener) {
+//        btn.addEventListener('click', handler);
+//    } else {
+//        btn.attachEvent('click', handler);
+//    }
+    </script>
+</body>
+</html>
