@@ -1,4 +1,6 @@
 import People from './People.es6';
+import $ from 'jquery';
+
 class Developer extends People {
     // age = 20
 
@@ -6,6 +8,7 @@ class Developer extends People {
     constructor(name) {
         super(name);
         this.age = 3;
+        console.log($('body'));
     }
 
     sayHello(words) {

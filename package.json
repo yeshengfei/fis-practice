@@ -1,0 +1,29 @@
+{
+  "name": "fis-practice",
+  "version": "1.0.0",
+  "description": "",
+  "main": "fis-conf.js",
+  "dependencies": {
+    "fis3-hook-commonjs": "^0.1.19",
+    "fis3-hook-module": "^1.2.2",
+    "fis3-hook-node_modules": "^2.2.2",
+    "fis3-packager-deps-pack": "^0.1.1",
+    "jquery": "^2.2.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yeshengfei/fis-practice.git"
+  },
+  "keywords": [
+    "fis"
+  ],
+  "author": "moon",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yeshengfei/fis-practice/issues"
+  }
+}

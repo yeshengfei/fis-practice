@@ -4,9 +4,22 @@ fis.match('*.es6', {
   parser: fis.plugin('es6-babel')
 });
 
+// 采用 commonjs 模块化方案。
+fis.hook('commonjs', {
+  baseUrl: './modules',
+  extList: ['.js', '.jsx', '.es6']
+});
 
 // 开启模块化开发
-fis.hook('module');
+// fis.hook('module');
+// 改用 npm 方案，而不是用 fis-components
+fis.unhook('components');
+fis.hook('node_modules');
+
+fis.match('/{node_modules,modules}/**.{js,jsx}', {
+  isMod: true
+});
+
 fis.match('*.es6', {
   isMod: true
 });
@@ -14,3 +27,24 @@ fis.match('*.es6', {
 fis.match('::package', {
   postpackager: fis.plugin('loader')
 });
+
+
+fis.media('prod')
+
+    // 对 js 做 uglify 压缩。
+    .match('*.{js,jsx,es6}', {
+      optimizer: fis.plugin('uglify-js')
+    })
+    .match('node_modules/**.js',{
+      packTo: '/static/pkg/common.js'
+    })
+    // .match('::package', {
+    //
+    //   // 更多用法请参考： https://github.com/fex-team/fis3-packager-deps-pack
+    //   packager: fis.plugin('deps-pack', {
+    //     'pkg/index.js': /*当有多条时，请用数组*/[
+    //       'modules/Developer.es6',
+    //       'modules/Developer.es6:deps', // 以及其所有依赖
+    //     ]
+    //   })
+    // })
