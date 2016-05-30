@@ -25,7 +25,9 @@ fis.match('*.es6', {
 });
 
 fis.match('::package', {
-  postpackager: fis.plugin('loader')
+  postpackager: fis.plugin('loader', {
+    // allInOne: true
+  })
 });
 
 
@@ -35,8 +37,13 @@ fis.media('prod')
     .match('*.{js,jsx,es6}', {
       optimizer: fis.plugin('uglify-js')
     })
-    .match('node_modules/**.js',{
-      packTo: '/static/pkg/common.js'
+    // .match('node_modules/**.js',{
+    //   packTo: '/static/common.js'
+    // })
+    .match('::package', {
+      postpackager: fis.plugin('loader', {
+        allInOne: true
+      })
     })
     // .match('::package', {
     //
