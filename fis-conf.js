@@ -4,6 +4,13 @@ fis.match('*.es6', {
   parser: fis.plugin('es6-babel')
 });
 
+fis.match('**/*.less', {
+  rExt: '.css', // from .less to .css
+  parser: fis.plugin('less-2.x', {
+    // fis-parser-less-2.x option
+  })
+});
+
 // 采用 commonjs 模块化方案。
 fis.hook('commonjs', {
   baseUrl: './modules',

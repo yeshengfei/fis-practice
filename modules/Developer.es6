@@ -1,14 +1,22 @@
+/**
+ * 样式与模板依赖
+ */
+require.loadCss({content: __inline('/style/main.less')});
+var devTpl = __inline('/style/people.tpl');
+
+
+/**
+ * 逻辑依赖
+ */
 import People from './People.es6';
 import $ from 'jquery';
 
 class Developer extends People {
-    // age = 20
-
-    // static CAREER = 'DEVELOPER';
     constructor(name) {
         super(name);
         this.age = 3;
         console.log($('body'));
+        // require('/style/')
     }
 
     sayHello(words) {
@@ -21,6 +29,7 @@ class Developer extends People {
     }
 }
 
-Developer.CAREER = 'DEV'
+//静态变量
+Developer.CAREER = 'DEV';
 
 export default Developer;
